@@ -21,7 +21,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="w-64 min-h-screen bg-slate-900 text-white flex flex-col p-4">
+    <aside className="w-48 lg:w-64 min-h-screen bg-slate-900 text-white flex flex-col p-8">
       <div className="flex items-center gap-2 mb-8 px-2">
         <h1 className="text-2xl font-bold tracking-wide">AdminPanel</h1>
       </div>
@@ -89,7 +89,7 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          to="/dashboard/users"
+          to="/dashboard/profile"
           className={({ isActive }) =>
             `flex items-center gap-3 p-3 rounded-lg transition-colors duration-200 ${
               isActive
@@ -99,7 +99,7 @@ const Sidebar = () => {
           }
         >
           <MdGroup className="w-6 h-6" />
-          <span className="font-medium">Users</span>
+          <span className="font-medium">My Profile</span>
         </NavLink>
 
         <NavLink

@@ -14,6 +14,7 @@ import PaymentSuccess from "../Pages/Payment/PaymentSuccess";
 import SearchRequest from "../Pages/searchRequest";
 import BloodDonationRequests from "../Pages/BloodDonationRequests";
 import DonationRequestDetails from "../Pages/DonationRequestDetails";
+import Profile from "../Pages/Dashboard/Profile";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       { path: "add-request", element: <AddRequest /> },
       { path: "all-users", element: <AllUsers /> },
       { path: "my-request", element: <ManageProducts /> },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
     ],
   },
 ]);
