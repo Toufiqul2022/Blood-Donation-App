@@ -36,7 +36,7 @@ const Sidebar = () => {
         {/* DONOR LINKS  */}
         {role === "donor" && (
           <>
-            <NavLink to="/dashboard" end className={linkClass}>
+            <NavLink to="/dashboard/donor" end className={linkClass}>
               <MdHome className="w-6 h-6" />
               <span className="font-medium">Dashboard</span>
             </NavLink>
@@ -53,7 +53,7 @@ const Sidebar = () => {
           </>
         )}
 
-         {/* ADMIN LINKS  */}
+        {/* ADMIN LINKS  */}
         {role === "admin" && (
           <>
             <NavLink to="/dashboard/admin" className={linkClass}>
@@ -73,7 +73,7 @@ const Sidebar = () => {
           </>
         )}
 
-         {/* VOLUNTEER LINKS  */}
+        {/* VOLUNTEER LINKS  */}
         {role === "volunteer" && (
           <>
             <NavLink to="/dashboard/admin" className={linkClass}>

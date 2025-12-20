@@ -1,4 +1,7 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
 import RootLayout from "../RootLayout/RootLayout";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
@@ -17,8 +20,21 @@ import DonationRequestDetails from "../Pages/DonationRequestDetails";
 import Profile from "../Pages/Dashboard/Profile";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
 import AllRequest from "../Pages/Dashboard/AllRequest";
-
 import VolunteerAllRequests from "../Pages/Dashboard/VolunteerAllRequests";
+
+/* 🔁 DASHBOARD ROLE REDIRECT (INLINE) */
+const DashboardRedirect = () => {
+  const { role, loading } = useContext(AuthContext);
+
+  if (loading) return null;
+
+  if (role === "admin") return <Navigate to="/dashboard/admin" replace />;
+  if (role === "donor") return <Navigate to="/dashboard/donor" replace />;
+  if (role === "volunteer")
+    return <Navigate to="/dashboard/admin" replace />;
+
+  return <Navigate to="/" replace />;
+};
 
 const router = createBrowserRouter([
   {
@@ -41,6 +57,7 @@ const router = createBrowserRouter([
       { path: "success-payment", element: <PaymentSuccess /> },
       { path: "search", element: <SearchRequest /> },
       { path: "requests", element: <BloodDonationRequests /> },
+
       {
         path: "requests/:id",
         element: (
@@ -60,40 +77,28 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
-      { index: true, element: <Dashboard /> },
+      // 🚫 NO DEFAULT DASHBOARD PAGE
+      // 🔁 AUTO REDIRECT BASED ON ROLE
+      { index: true, element: <DashboardRedirect /> },
 
-      /* 🔐 ADMIN ROUTE */
-      {
-        path: "admin",
-        element: <AdminDashboard />,
-      },
-
-      /* 👤 DONOR ROUTES */
+      // 👤 DONOR
+      { path: "donor", element: <Dashboard /> },
       { path: "add-request", element: <AddRequest /> },
       { path: "my-request", element: <ManageProducts /> },
 
-      /* 👮 ADMIN ONLY */
+      // 👮 ADMIN
+      { path: "admin", element: <AdminDashboard /> },
       { path: "all-users", element: <AllUsers /> },
+      { path: "all-requests", element: <AllRequest /> },
 
-      /* 👤 COMMON */
-      {
-        path: "profile",
-        element: <Profile />,
-      },
-
-      /* 🩸 ADMIN ALL REQUEST */
-      {
-        path: "All-requests",
-        element: <AllRequest />,
-      },
-
-      /* 🤝 VOLUNTEER ROUTE (NEW) */
+      // 🤝 VOLUNTEER
       {
         path: "all-blood-donation-request",
-        element: (
-            <VolunteerAllRequests />
-        ),
+        element: <VolunteerAllRequests />,
       },
+
+      // 👤 COMMON
+      { path: "profile", element: <Profile /> },
     ],
   },
 ]);

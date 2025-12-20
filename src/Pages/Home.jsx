@@ -4,6 +4,7 @@ import Donate from "../assets/Donate.jpg";
 import Card1 from "../assets/Card_1.jpg";
 import Card2 from "../assets/Card_2.jpg";
 import Card3 from "../assets/Card_3.png";
+import Footer from "../components/Footer";
 
 const Home = ({ user }) => {
   const navigate = useNavigate();
@@ -28,7 +29,6 @@ const Home = ({ user }) => {
 
   return (
     <div className="font-sans text-slate-800 bg-slate-50">
-      {/* Hero Section */}
       <section
         className="relative overflow-hidden text-white"
         style={{
@@ -64,7 +64,6 @@ const Home = ({ user }) => {
         </div>
       </section>
 
-      {/* Features */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-red-600 mb-14">
@@ -93,7 +92,6 @@ const Home = ({ user }) => {
         </div>
       </section>
 
-      {/* Why Donate */}
       <section className="py-10 bg-gradient-to-b from-white to-rose-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-14">
@@ -128,7 +126,6 @@ const Home = ({ user }) => {
         </div>
       </section>
 
-      {/* Contact */}
       <section className="py-20 bg-gradient-to-br from-rose-600 to-red-600 text-white">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10">
           <form className="bg-white text-slate-800 rounded-2xl shadow-xl p-8 space-y-4">
@@ -175,49 +172,8 @@ const Home = ({ user }) => {
           </div>
         </div>
       </section>
-
       {/* Footer */}
-      <footer className="bg-slate-900 text-slate-300 py-12">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-3xl font-bold text-white mb-3">BloodUnity</h3>
-            <p>Connecting donors with patients—together we save lives.</p>
-          </div>
-
-          <div>
-            <h4 className="text-xl font-semibold text-white mb-3">
-              Quick Links
-            </h4>
-            <ul className="space-y-2">
-              <li
-                className="hover:text-white cursor-pointer"
-                onClick={() => navigate("/register")}
-              >
-                Join as Donor
-              </li>
-              <li
-                className="hover:text-white cursor-pointer"
-                onClick={() => navigate("/search")}
-              >
-                Search Donors
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-xl font-semibold text-white mb-3">Follow Us</h4>
-            <ul className="space-y-2">
-              <li className="hover:text-white cursor-pointer">Facebook</li>
-              <li className="hover:text-white cursor-pointer">Twitter</li>
-              <li className="hover:text-white cursor-pointer">Instagram</li>
-            </ul>
-          </div>
-        </div>
-
-        <p className="text-center text-slate-400 mt-10">
-          © 2025 BloodDonate. All rights reserved.
-        </p>
-      </footer>
+      <Footer></Footer>
     </div>
   );
 };
