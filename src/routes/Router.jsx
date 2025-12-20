@@ -23,6 +23,7 @@ import AllRequest from "../Pages/Dashboard/AllRequest";
 import VolunteerAllRequests from "../Pages/Dashboard/VolunteerAllRequests";
 
 
+// eslint-disable-next-line react-refresh/only-export-components
 const DashboardRedirect = () => {
   const { role, loading } = useContext(AuthContext);
 

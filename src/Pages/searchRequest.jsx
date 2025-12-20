@@ -39,7 +39,6 @@ const SearchRequest = () => {
       .finally(() => setLoading(false));
   }, [axiosInstance]);
 
-  // ✅ Search handler
   const handleSearch = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -55,7 +54,6 @@ const SearchRequest = () => {
       .finally(() => setLoading(false));
   };
 
-  // 🔹 Navigate to details page
   const handleView = (id) => {
     if (!user) {
       navigate("/login");
@@ -141,9 +139,6 @@ const SearchRequest = () => {
           Search
         </button>
       </form>
-
-      {/* 📦 Cards Section */}
-      {/* 📦 Cards Section */}
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {loading && (
           <p className="text-center col-span-full text-lg">Loading...</p>
