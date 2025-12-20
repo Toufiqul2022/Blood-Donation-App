@@ -8,7 +8,6 @@ const DonateModal = ({ requestId, closeModal, refresh }) => {
 
   const handleConfirm = async () => {
     try {
-      // ✅ Get Firebase ID Token
       const token = await user.getIdToken();
 
       await axiosInstance.patch(
@@ -19,7 +18,7 @@ const DonateModal = ({ requestId, closeModal, refresh }) => {
         },
         {
           headers: {
-            authorization: `Bearer ${token}`, // ✅ correct token
+            authorization: `Bearer ${token}`,
           },
         }
       );

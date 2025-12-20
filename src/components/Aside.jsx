@@ -33,7 +33,7 @@ const Sidebar = () => {
       </div>
 
       <nav className="flex flex-col gap-2 flex-1">
-        {/* ================= DONOR LINKS ================= */}
+        {/* DONOR LINKS  */}
         {role === "donor" && (
           <>
             <NavLink to="/dashboard" end className={linkClass}>
@@ -53,7 +53,7 @@ const Sidebar = () => {
           </>
         )}
 
-        {/* ================= ADMIN LINKS ================= */}
+         {/* ADMIN LINKS  */}
         {role === "admin" && (
           <>
             <NavLink to="/dashboard/admin" className={linkClass}>
@@ -73,7 +73,7 @@ const Sidebar = () => {
           </>
         )}
 
-        {/* ================= VOLUNTEER LINKS ================= */}
+         {/* VOLUNTEER LINKS  */}
         {role === "volunteer" && (
           <>
             <NavLink to="/dashboard/admin" className={linkClass}>
@@ -91,7 +91,6 @@ const Sidebar = () => {
           </>
         )}
 
-        {/* ================= COMMON ================= */}
         <NavLink to="/dashboard/profile" className={linkClass}>
           <MdGroup className="w-6 h-6" />
           <span className="font-medium">My Profile</span>

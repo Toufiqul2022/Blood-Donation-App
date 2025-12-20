@@ -30,9 +30,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar bg-base-100 shadow-md px-4">
-      {/* Navbar Start */}
       <div className="navbar-start">
-        {/* Mobile Menu */}
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
