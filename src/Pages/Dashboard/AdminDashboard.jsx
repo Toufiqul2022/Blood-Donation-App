@@ -20,11 +20,9 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        // Fetch stats
         const statsRes = await axiosInstance.get("/dashboard-stats");
         setStats(statsRes.data);
 
-        // Fetch all donation requests
         const requestsRes = await axiosInstance.get("/donation-requests");
         setRequests(requestsRes.data);
       } catch (err) {
@@ -44,7 +42,6 @@ const AdminDashboard = () => {
 
   return (
     <div className="p-8 font-sans bg-gray-50 min-h-screen">
-      {/* Welcome Section */}
       <section className="mb-10 text-center">
         <h1 className="text-4xl font-bold text-gray-800">
           Welcome , {user?.displayName || "User"}!
@@ -53,8 +50,6 @@ const AdminDashboard = () => {
           Here's a quick overview of your system.
         </p>
       </section>
-
-      {/* Stats Cards */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
         <div className="bg-white shadow-lg rounded-xl p-6 flex flex-col items-center">
           <FiUser className="text-blue-500 text-5xl mb-3" />

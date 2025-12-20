@@ -9,7 +9,6 @@ const AllRequest = () => {
   const [page, setPage] = useState(1);
   const size = 10;
 
-  // ✅ BEST PRACTICE
   useEffect(() => {
     const fetchRequests = async () => {
       const res = await axiosSecure.get(
@@ -20,7 +19,7 @@ const AllRequest = () => {
     };
 
     fetchRequests();
-  }, [axiosSecure, page, size]); // ✅ NO axiosSecure dependency
+  }, [axiosSecure, page, size]); 
 
   const handleStatus = async (id, status) => {
     await axiosSecure.patch(`/admin/requests/status/${id}`, { status });
