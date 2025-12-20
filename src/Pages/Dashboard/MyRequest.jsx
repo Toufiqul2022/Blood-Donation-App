@@ -30,7 +30,6 @@ const MyRequest = () => {
     <div className="w-full p-6 bg-white rounded-lg shadow">
       <h2 className="text-2xl font-semibold mb-4">My Requests</h2>
 
-      {/* TABLE */}
       <div className="overflow-x-auto">
         <table className="table w-full border">
           <thead className="bg-gray-100 text-gray-700">

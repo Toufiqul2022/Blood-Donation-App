@@ -84,9 +84,7 @@ const Profile = () => {
         )}
       </div>
 
-      {/* BODY */}
       <div className="p-6 space-y-8">
-        {/* PERSONAL INFO */}
         <div>
           <h3 className="font-semibold text-lg mb-4 border-b pb-2">
             Personal Information
@@ -128,7 +126,6 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* LOCATION */}
         <div>
           <h3 className="font-semibold text-lg mb-4 border-b pb-2">Location</h3>
 
@@ -153,7 +150,6 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* AVATAR */}
         <div>
           <h3 className="font-semibold text-lg mb-4 border-b pb-2">
             Profile Picture
