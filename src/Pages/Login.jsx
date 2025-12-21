@@ -38,26 +38,6 @@ const Login = () => {
       });
   };
 
-  const googleSignIn = () => {
-    handleGoogleSignIn()
-      .then((result) => {
-        const user = result.user;
-        setUser(user);
-        toast.success("Google Login Successful!", { autoClose: 1500 });
-
-        setTimeout(() => {
-          navigate(location.state || "/");
-        }, 1500);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  const handleForget = () => {
-    navigate(`/forget/${email}`);
-  };
-
   return (
     <div className="hero bg-base-200 min-h-screen">
       <ToastContainer position="top-right" autoClose={40000} />
@@ -87,20 +67,13 @@ const Login = () => {
                   required
                 />
                 <div className="mt-2">
-                  <button onClick={handleForget} className="link link-hover">
+                  <button className="link link-hover">
                     Forgot password?
                   </button>
                 </div>
-                <button
-                  type="button"
-                  onClick={googleSignIn}
-                  className="btn text-2xl mt-2 w-full flex items-center justify-center gap-2"
-                >
-                  <span className="text-[16px]">Sign In with</span> <FcGoogle />
-                </button>
                 <Link to="/register" className="block mt-2 text-center">
                   New in our Website?{" "}
-                  <span className="text-blue-600">Register</span>
+                  <span className="text-blue-600 font-bold">Register</span>
                 </Link>
                 <button type="submit" className="btn btn-neutral mt-4 w-full">
                   Login

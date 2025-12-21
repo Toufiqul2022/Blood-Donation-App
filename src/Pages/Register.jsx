@@ -20,28 +20,54 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-
   useEffect(() => {
     axios.get("/districts.json").then((res) => {
-      setDistricts(res.data.districts);
+      setDistricts(res.data.districts || res.data);
     });
 
     axios.get("/upazila.json").then((res) => {
-      setUpazilas(res.data.upazilas);
+      setUpazilas(res.data.upazilas || res.data);
     });
   }, []);
 
+  const handleSocialLogin = () => {
+    handleGoogleSignIn()
+      .then((result) => {
+        const userInfo = {
+          name: result.user.displayName,
+          email: result.user.email,
+          photoURL: result.user.photoURL,
+          blood: "",
+          district: "",
+          upazila: "",
+          createdAt: new Date(),
+        };
+        setUser(result.user);
+        axios.post("http://localhost:5000/users", userInfo).then(() => {
+          toast.success("Google Login Successful!");
+          navigate("/");
+        });
+      })
+      .catch((err) => toast.error(err.message));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    const name = e.target.name.value;
-    const blood = e.target.blood.value;
-    const photoFile = e.target.PhotoUrl.files[0];
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const confirmPassword = form.confirmPassword.value;
+    const name = form.name.value;
+    const blood = form.blood.value;
+    const photoFile = form.PhotoUrl.files[0];
 
-    // Password validation
+    // Password match validation
+    if (password !== confirmPassword) {
+      return toast.error("Passwords do not match");
+    }
+
+    // Password complexity validation
     if (password.length < 6)
       return toast.warning("Password must be at least 6 characters");
     if (!/[A-Z]/.test(password))
@@ -71,7 +97,7 @@ const Register = () => {
         photoURL: imgURL,
       });
 
-      setUser(result.user);
+      setUser({ ...result.user, displayName: name, photoURL: imgURL });
 
       // Save user to DB
       await axios.post("http://localhost:5000/users", {
@@ -92,29 +118,10 @@ const Register = () => {
     }
   };
 
-
-  const googleSignUp = () => {
-    handleGoogleSignIn()
-      .then((result) => {
-        setUser(result.user);
-
-        axios.post("http://localhost:5000/users", {
-          name: result.user.displayName,
-          email: result.user.email,
-          photoURL: result.user.photoURL,
-          createdAt: new Date(),
-        });
-
-        toast.success("Signed in with Google!");
-        setTimeout(() => navigate("/"), 1500);
-      })
-      .catch((err) => console.log(err));
-  };
-
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="hero bg-base-200 min-h-screen py-10">
       <div className="hero-content flex-col">
-        <div className="text-center">
+        <div className="text-center mb-6">
           <h1 className="text-5xl font-bold">Register now!</h1>
         </div>
 
@@ -127,7 +134,7 @@ const Register = () => {
                 <label className="label">Name</label>
                 <input
                   type="text"
-                  className="input input-bordered"
+                  className="input input-bordered w-full"
                   name="name"
                   placeholder="Your Full Name"
                   required
@@ -137,7 +144,7 @@ const Register = () => {
                 <label className="label">Email</label>
                 <input
                   type="email"
-                  className="input input-bordered"
+                  className="input input-bordered w-full"
                   name="email"
                   placeholder="Email"
                   required
@@ -147,7 +154,7 @@ const Register = () => {
                 <label className="label">Photo</label>
                 <input
                   type="file"
-                  className="file-input file-input-bordered"
+                  className="file-input file-input-bordered w-full"
                   name="PhotoUrl"
                   required
                 />
@@ -156,10 +163,13 @@ const Register = () => {
                 <label className="label">Blood Group</label>
                 <select
                   name="blood"
-                  className="select select-bordered"
+                  className="select select-bordered w-full"
                   required
+                  defaultValue=""
                 >
-                  <option value="">Select Blood Group</option>
+                  <option value="" disabled>
+                    Select Blood Group
+                  </option>
                   <option value="A+">A+</option>
                   <option value="A-">A-</option>
                   <option value="B+">B+</option>
@@ -178,7 +188,7 @@ const Register = () => {
                     setSelectedDistrict(e.target.value);
                     setSelectedUpazila("");
                   }}
-                  className="select select-bordered"
+                  className="select select-bordered w-full"
                   required
                 >
                   <option value="">Select Your District</option>
@@ -194,7 +204,7 @@ const Register = () => {
                 <select
                   value={selectedUpazila}
                   onChange={(e) => setSelectedUpazila(e.target.value)}
-                  className="select select-bordered"
+                  className="select select-bordered w-full"
                   required
                 >
                   <option value="">Select Your Upazila</option>
@@ -211,31 +221,39 @@ const Register = () => {
                 <label className="label">Password</label>
                 <input
                   type="password"
-                  className="input input-bordered"
+                  className="input input-bordered w-full"
                   name="password"
                   placeholder="Password"
                   required
                 />
 
-                {/* Google */}
-                <button
-                  type="button"
-                  onClick={googleSignUp}
-                  className="btn btn-outline mt-2"
-                >
-                  <span className="mr-2">Sign in with</span> <FcGoogle />
-                </button>
-
-                {/* Login */}
-                <Link to="/login" className="text-sm mt-2">
-                  Already have an account?{" "}
-                  <span className="text-blue-600">Login</span>
-                </Link>
+                {/* Confirm Password */}
+                <label className="label">Confirm Password</label>
+                <input
+                  type="password"
+                  className="input input-bordered w-full"
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                  required
+                />
 
                 {/* Submit */}
-                <button className="btn btn-neutral mt-4">Register</button>
+                <button className="btn btn-neutral w-full mt-6">
+                  Register
+                </button>
               </fieldset>
             </form>
+
+            {/* Login Link */}
+            <p className="text-center mt-4 text-sm">
+              Already have an account?{" "}
+              <Link
+                to="/login"
+                className="text-blue-600 font-bold hover:underline"
+              >
+                Login
+              </Link>
+            </p>
           </div>
         </div>
       </div>
