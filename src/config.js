@@ -1,2 +1,2 @@
 // src/config.js
-export const API_URL = "http://localhost:5000"; // Backend URL
+export const API_URL = "https://assignment-11-backend-xi.vercel.app"; // Backend URL

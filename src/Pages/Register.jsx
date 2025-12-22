@@ -43,10 +43,12 @@ const Register = () => {
           createdAt: new Date(),
         };
         setUser(result.user);
-        axios.post("http://localhost:5000/users", userInfo).then(() => {
-          toast.success("Google Login Successful!");
-          navigate("/");
-        });
+        axios
+          .post("https://assignment-11-backend-xi.vercel.app/users", userInfo)
+          .then(() => {
+            toast.success("Google Login Successful!");
+            navigate("/");
+          });
       })
       .catch((err) => toast.error(err.message));
   };
@@ -100,7 +102,7 @@ const Register = () => {
       setUser({ ...result.user, displayName: name, photoURL: imgURL });
 
       // Save user to DB
-      await axios.post("http://localhost:5000/users", {
+      await axios.post("https://assignment-11-backend-xi.vercel.app/users", {
         name,
         email,
         photoURL: imgURL,

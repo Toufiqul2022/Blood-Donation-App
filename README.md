@@ -1,16 +1,40 @@
-# React + Vite
+# 🩸 Blood Donation App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A platform connecting blood donors with people in need to save lives efficiently.
 
-Currently, two official plugins are available:
+## 🔗 Live Links
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Live Website:** [Paste your Firebase/Netlify Link Here]
+**Server API:** [Paste your Server Link Here]
 
-## React Compiler
+## Purpose
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The goal of this project is to automate the blood donation process. It allows users to register as donors, search for blood based on location and group, and create donation requests. It also features an Admin and Volunteer dashboard to manage users and requests.
 
-## Expanding the ESLint configuration
+## Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **User Roles:** Distinct dashboards for Donors, Volunteers, and Admins.
+- **Search Engine:** Find donors easily by Blood Group, District, and Upazila.
+- **Request System:** Donors can create, edit, and manage blood donation requests.
+- **Admin Control:** Admins can block users, make volunteers, and manage content.
+- **Secure Payments:** Stripe integration for funding donations.
+- **Authentication:** Secure login via Email/Password (Firebase & JWT).
+
+## Tech Stack & Packages Used
+
+**Frontend:**
+
+- React.js
+- Tailwind CSS & DaisyUI (UI Design)
+- Axios (API Calls)
+- Firebase (Authentication)
+- React Router Dom (Navigation)
+- SweetAlert2 & React-Toastify (Notifications)
+
+**Backend:**
+
+- Node.js & Express.js
+- MongoDB (Database)
+- JWT (Security)
+- Stripe (Payments)
+- Dotenv (Environment Variables)
