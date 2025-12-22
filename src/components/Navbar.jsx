@@ -22,6 +22,11 @@ const Navbar = () => {
       <li>
         <Link to="/search">Search</Link>
       </li>
+      
+    </>
+  )
+const privateLinks = (
+    <>
       <li>
         <Link to="/funding">Funding</Link>
       </li>
@@ -52,7 +57,8 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            {menuItems}
+            {menuItems},
+            {user && privateLinks}
             {!user && (
               <li>
                 <Link to="/login">Login</Link>
@@ -67,7 +73,7 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{menuItems}</ul>
+        <ul className="menu menu-horizontal px-1">{menuItems},{user && privateLinks}</ul>
       </div>
 
       <div className="navbar-end">
