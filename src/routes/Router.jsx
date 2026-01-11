@@ -22,6 +22,12 @@ import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
 import AllRequest from "../Pages/Dashboard/AllRequest";
 import VolunteerAllRequests from "../Pages/Dashboard/VolunteerAllRequests";
 import VolunteerDashboard from "../Pages/Dashboard/VolunteerDashboard";
+import FeaturesSection from "../Pages/Features";
+import StatisticsSection from "../Pages/Statistics";
+import HighlightsSection from "../Pages/Highlights";
+import TestimonialsSection from "../Pages/Testimonials";
+import FAQSection from "../Pages/FAQ";
+import EmergencyRequests from "../Pages/EmergencyRequests";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const DashboardRedirect = () => {
@@ -58,6 +64,12 @@ const router = createBrowserRouter([
       { path: "success-payment", element: <PaymentSuccess /> },
       { path: "search", element: <SearchRequest /> },
       { path: "requests", element: <BloodDonationRequests /> },
+      { path: "features", element: <FeaturesSection /> },
+      { path: "statistics", element: <StatisticsSection /> },
+      { path: "highlights", element: <HighlightsSection /> },
+      { path: "testimonials", element: <TestimonialsSection /> },
+      { path: "faq", element: <FAQSection /> },
+      { path: "emergencyReq", element: <EmergencyRequests /> },
 
       {
         path: "requests/:id",

@@ -22,6 +22,24 @@ const Navbar = () => {
       <li>
         <Link to="/search">Search</Link>
       </li>
+      <li>
+        <Link to="/features">Features</Link>
+      </li>
+      <li>
+        <Link to="/statistics">Statistics</Link>
+      </li>
+      <li>
+        <Link to="/highlights">Highlights</Link>
+      </li>
+      <li>
+        <Link to="/testimonials">Testimonials</Link>
+      </li>
+      <li>
+        <Link to="/faq">FAQ</Link>
+      </li>
+      <li>
+        <Link to="/emergencyReq">EmergencyRequests</Link>
+      </li>
       
     </>
   )
@@ -57,7 +75,7 @@ const privateLinks = (
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            {menuItems},
+            {menuItems}
             {user && privateLinks}
             {!user && (
               <li>
@@ -73,7 +91,7 @@ const privateLinks = (
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{menuItems},{user && privateLinks}</ul>
+        <ul className="menu menu-horizontal px-1">{menuItems}{user && privateLinks}</ul>
       </div>
 
       <div className="navbar-end">
@@ -93,7 +111,7 @@ const privateLinks = (
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 flex flex-col gap-2"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100  w-52 flex flex-col gap-2"
             >
               <li>
                 <Link className="btn" to="/dashboard">

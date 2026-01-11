@@ -35,11 +35,21 @@ const DonationRequestDetails = () => {
       .finally(() => setLoading(false));
   }, [id, axiosInstance, user]);
 
-  if (loading) return <p className="text-center mt-20">Loading details...</p>;
-  if (!request) return <p className="text-center mt-20">Request not found</p>;
+  if (loading)
+    return (
+      <p className="text-center min-h-screen bg-gradient-to-br from-teal-50 via-emerald-50 to-teal-100 ">
+        Loading details...
+      </p>
+    );
+  if (!request)
+    return (
+      <p className="text-center min-h-screen bg-gradient-to-br from-teal-50 via-emerald-50 to-teal-100">
+        Request not found
+      </p>
+    );
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-red-50 to-white py-12 px-4">
+    <section className="min-h-screen bg-gradient-to-br from-teal-50 via-emerald-50 to-teal-100 py-12 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">

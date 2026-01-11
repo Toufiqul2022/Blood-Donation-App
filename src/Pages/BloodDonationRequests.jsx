@@ -11,7 +11,6 @@ const BloodDonationRequests = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
-
   useEffect(() => {
     setLoading(true);
     axiosInstance
@@ -30,7 +29,7 @@ const BloodDonationRequests = () => {
   };
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="p-6  mx-auto bg-gradient-to-br from-teal-50 via-emerald-50 to-teal-100 min-h-screen">
       <h2 className="text-3xl font-bold text-center text-red-600 mb-10">
         Blood Donation Requests
       </h2>
@@ -45,7 +44,7 @@ const BloodDonationRequests = () => {
         </p>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {requests.map((req) => (
           <div key={req._id} className="card bg-base-100 shadow-lg border">
             <div className="card-body space-y-2">

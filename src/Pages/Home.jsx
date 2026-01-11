@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Donate from "../assets/Donate.jpg";
 import Card1 from "../assets/Card_1.jpg";
 import Card2 from "../assets/Card_2.jpg";
@@ -28,7 +28,8 @@ const Home = ({ user }) => {
   ];
 
   return (
-    <div className="font-sans text-slate-800 bg-slate-50">
+    <div className="min-h-screen font-sans text-slate-800 bg-gradient-to-br from-teal-50 via-emerald-50 to-teal-100">
+      {/* Hero Section */}
       <section
         className="relative overflow-hidden text-white"
         style={{
@@ -47,16 +48,14 @@ const Home = ({ user }) => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              aria-label="Join as donor"
               onClick={() => navigate("/register")}
-              className="px-8 py-3 rounded-xl bg-white text-red-600 font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition focus:ring-2 focus:ring-white"
+              className="px-8 py-3 rounded-xl bg-white text-red-600 font-semibold shadow-lg hover:shadow-xl transition"
             >
               Join as a Donor
             </button>
             <button
-              aria-label="Search donors"
               onClick={() => navigate("/search")}
-              className="px-8 py-3 rounded-xl border border-white/60 bg-white/10 backdrop-blur text-white font-semibold hover:bg-white/20 transition focus:ring-2 focus:ring-white"
+              className="px-8 py-3 rounded-xl border border-white/60 bg-white/10 text-white font-semibold hover:bg-white/20 transition"
             >
               Search Donors
             </button>
@@ -64,11 +63,13 @@ const Home = ({ user }) => {
         </div>
       </section>
 
+      {/* Features Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-red-600 mb-14">
             Our Features
           </h2>
+
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((f, i) => (
               <div
@@ -89,10 +90,20 @@ const Home = ({ user }) => {
               </div>
             ))}
           </div>
+
+          <div className="mt-8 text-center">
+            <Link
+              to="/features"
+              className="inline-block rounded-md bg-red-600 px-8 py-3 text-base font-semibold text-white hover:bg-red-700 transition"
+            >
+              View More
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="py-10 bg-gradient-to-b from-white to-rose-50">
+      {/* Why Donate Section */}
+      <section className="py-12">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-14">
             Why Donate Blood?
@@ -126,9 +137,10 @@ const Home = ({ user }) => {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-rose-600 to-red-600 text-white">
+      {/* Contact Section */}
+      <section className="py-20">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10">
-          <form className="bg-white text-slate-800 rounded-2xl shadow-xl p-8 space-y-4">
+          <form className="bg-white rounded-2xl shadow-xl p-8 space-y-4">
             <h2 className="text-2xl font-bold text-center text-red-600 mb-6">
               Get in Touch
             </h2>
@@ -156,7 +168,7 @@ const Home = ({ user }) => {
 
           <div className="flex flex-col justify-center space-y-4">
             <h3 className="text-3xl font-bold">Contact Us</h3>
-            <p className="text-rose-100">
+            <p>
               Want to make a difference? Reach out to find donation events near
               you.
             </p>
@@ -172,7 +184,6 @@ const Home = ({ user }) => {
           </div>
         </div>
       </section>
-      <Footer></Footer>
     </div>
   );
 };
