@@ -47,7 +47,7 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-teal-50 via-emerald-50 to-teal-100">
+    <section className="py-24 bg-sky-500/15">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">

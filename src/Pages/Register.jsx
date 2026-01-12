@@ -64,12 +64,9 @@ const Register = () => {
     const blood = form.blood.value;
     const photoFile = form.PhotoUrl.files[0];
 
-    // Password match validation
     if (password !== confirmPassword) {
       return toast.error("Passwords do not match");
     }
-
-    // Password complexity validation
     if (password.length < 6)
       return toast.warning("Password must be at least 6 characters");
     if (!/[A-Z]/.test(password))
@@ -80,7 +77,6 @@ const Register = () => {
       return toast.warning("Password must contain a number");
 
     try {
-      // Upload image
       const formData = new FormData();
       formData.append("image", photoFile);
 
@@ -91,7 +87,6 @@ const Register = () => {
 
       const imgURL = uploadRes.data.data.display_url;
 
-      // Create user
       const result = await registerWithEmailPassword(email, password);
 
       await updateProfile(auth.currentUser, {
@@ -101,7 +96,6 @@ const Register = () => {
 
       setUser({ ...result.user, displayName: name, photoURL: imgURL });
 
-      // Save user to DB
       await axios.post("https://assignment-11-backend-xi.vercel.app/users", {
         name,
         email,
@@ -121,7 +115,7 @@ const Register = () => {
   };
 
   return (
-    <div className="hero bg-[#d8e2dc] min-h-screen py-10">
+    <div className="hero bg-sky-500/15 min-h-screen py-10">
       <div className="hero-content flex-col">
         <div className="text-center mb-6">
           <h1 className="text-5xl font-bold">Register now!</h1>
@@ -195,7 +189,7 @@ const Register = () => {
                 >
                   <option value="">Select Your District</option>
                   {districts.map((d) => (
-                    <option key={d.id} value={d.id}>
+                    <option key={d.id} value={String(d.id)}>
                       {d.name}
                     </option>
                   ))}
@@ -211,7 +205,9 @@ const Register = () => {
                 >
                   <option value="">Select Your Upazila</option>
                   {upazilas
-                    .filter((u) => u.district_id === selectedDistrict)
+                    .filter(
+                      (u) => String(u.district_id) === selectedDistrict // ✅ string compare
+                    )
                     .map((u) => (
                       <option key={u.id} value={u.name}>
                         {u.name}
@@ -246,7 +242,6 @@ const Register = () => {
               </fieldset>
             </form>
 
-            {/* Login Link */}
             <p className="text-center mt-4 text-sm">
               Already have an account?{" "}
               <Link

@@ -29,7 +29,7 @@ const BloodDonationRequests = () => {
   };
 
   return (
-    <div className="p-6  mx-auto bg-gradient-to-br from-teal-50 via-emerald-50 to-teal-100 min-h-screen">
+    <div className="p-6  mx-auto bg-sky-500/15 min-h-screen">
       <h2 className="text-3xl font-bold text-center text-red-600 mb-10">
         Blood Donation Requests
       </h2>

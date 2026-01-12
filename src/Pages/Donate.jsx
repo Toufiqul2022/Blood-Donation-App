@@ -25,7 +25,7 @@ const Donate = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-teal-50 via-emerald-50 to-teal-100 px-4 py-10">
+    <div className="min-h-screen flex items-center justify-center bg-sky-500/15  px-4 py-10">
       <div className="card w-full max-w-md bg-base-100/90 backdrop-blur-md shadow-2xl border border-white/50">
         <div className="card-body items-center text-center p-8">
           {/* Decorative Icon Header */}

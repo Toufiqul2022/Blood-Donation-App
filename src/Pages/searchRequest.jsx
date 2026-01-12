@@ -63,7 +63,7 @@ const SearchRequest = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-teal-50 via-emerald-50 to-teal-100">
+    <div className="bg-sky-500/15">
       <div className="max-w-7xl mx-auto p-6">
         {/* 🔍 Search Form */}
         <form

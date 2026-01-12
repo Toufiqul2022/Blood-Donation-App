@@ -28,6 +28,7 @@ import HighlightsSection from "../Pages/Highlights";
 import TestimonialsSection from "../Pages/Testimonials";
 import FAQSection from "../Pages/FAQ";
 import EmergencyRequests from "../Pages/EmergencyRequests";
+import ForgetPassword from "../Pages/ForgetPassword";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const DashboardRedirect = () => {
@@ -70,6 +71,7 @@ const router = createBrowserRouter([
       { path: "testimonials", element: <TestimonialsSection /> },
       { path: "faq", element: <FAQSection /> },
       { path: "emergencyReq", element: <EmergencyRequests /> },
+       { path:"/forget/:email?", element:<ForgetPassword />} ,
 
       {
         path: "requests/:id",

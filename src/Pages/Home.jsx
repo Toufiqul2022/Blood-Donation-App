@@ -4,7 +4,6 @@ import Donate from "../assets/Donate.jpg";
 import Card1 from "../assets/Card_1.jpg";
 import Card2 from "../assets/Card_2.jpg";
 import Card3 from "../assets/Card_3.png";
-import Footer from "../components/Footer";
 
 const Home = ({ user }) => {
   const navigate = useNavigate();
@@ -28,7 +27,7 @@ const Home = ({ user }) => {
   ];
 
   return (
-    <div className="min-h-screen font-sans text-slate-800 bg-gradient-to-br from-teal-50 via-emerald-50 to-teal-100">
+    <div className="min-h-screen font-sans text-slate-800 bg-sky-500/15">
       {/* Hero Section */}
       <section
         className="relative overflow-hidden text-white"
@@ -64,7 +63,7 @@ const Home = ({ user }) => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16">
+      <section className="py-16 bg-sky-500/15">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-red-600 mb-14">
             Our Features
@@ -103,7 +102,7 @@ const Home = ({ user }) => {
       </section>
 
       {/* Why Donate Section */}
-      <section className="py-12">
+      <section className="py-12 bg-sky-500/15">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-14">
             Why Donate Blood?
@@ -137,27 +136,49 @@ const Home = ({ user }) => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10">
-          <form className="bg-white rounded-2xl shadow-xl p-8 space-y-4">
-            <h2 className="text-2xl font-bold text-center text-red-600 mb-6">
+      {/* Contact Section – blue background with glass card */}
+      <section className="py-20 bg-sky-500/15">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+          {/* Glassy form card */}
+          <form className="rounded-3xl bg-slate-900/40 backdrop-blur-xl shadow-2xl p-8 md:p-10 space-y-5 border border-white/10">
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-red-500 mb-4">
               Get in Touch
             </h2>
 
             <div className="grid md:grid-cols-2 gap-4">
-              <input type="text" className="input" placeholder="First Name" />
-              <input type="text" className="input" placeholder="Last Name" />
+              <input
+                type="text"
+                className="w-full rounded-xl bg-slate-900/70 border border-slate-700 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+                placeholder="First Name"
+              />
+              <input
+                type="text"
+                className="w-full rounded-xl bg-slate-900/70 border border-slate-700 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+                placeholder="Last Name"
+              />
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
-              <input type="email" className="input" placeholder="Email" />
-              <input type="tel" className="input" placeholder="Phone" />
+              <input
+                type="email"
+                className="w-full rounded-xl bg-slate-900/70 border border-slate-700 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+                placeholder="Email"
+              />
+              <input
+                type="tel"
+                className="w-full rounded-xl bg-slate-900/70 border border-slate-700 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+                placeholder="Phone"
+              />
             </div>
 
-            <input type="text" className="input w-full" placeholder="Address" />
+            <input
+              type="text"
+              className="w-full rounded-xl bg-slate-900/70 border border-slate-700 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+              placeholder="Address"
+            />
+
             <textarea
-              className="input w-full h-14"
+              className="w-full rounded-xl bg-slate-900/70 border border-slate-700 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 min-h-[110px]"
               placeholder="Your Message"
             />
 
@@ -166,20 +187,22 @@ const Home = ({ user }) => {
             </button>
           </form>
 
+          {/* Contact info, bright text on blue */}
           <div className="flex flex-col justify-center space-y-4">
             <h3 className="text-3xl font-bold">Contact Us</h3>
-            <p>
+            <p >
               Want to make a difference? Reach out to find donation events near
               you.
             </p>
             <p>
-              <strong>Email:</strong> info@bloodbridge.com
+              <span className="font-semibold">Email:</span>{" "}
+              info@bloodbridge.com
             </p>
             <p>
-              <strong>Support:</strong> (+880) 123 456 586
+              <span className="font-semibold">Support:</span> (+880) 123 456 586
             </p>
             <p>
-              <strong>Address:</strong> Dhaka, Bangladesh
+              <span className="font-semibold">Address:</span> Dhaka, Bangladesh
             </p>
           </div>
         </div>

@@ -21,7 +21,7 @@ const PaymentSuccess = () => {
   }, [axiosInstance, sessionId]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-base-200 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-sky-500/15 px-4">
       <div className="card w-full max-w-md bg-base-100 shadow-xl">
         <div className="card-body text-center">
           <div className="text-6xl mb-4">🎉</div>
@@ -42,7 +42,7 @@ const PaymentSuccess = () => {
 
           <button
             className="btn btn-primary mt-4"
-            onClick={() => window.location.href = "/"}
+            onClick={() => (window.location.href = "/")}
           >
             Go to Home
           </button>

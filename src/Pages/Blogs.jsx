@@ -31,7 +31,7 @@ const BlogsSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-[#d8e2dc]">
+    <section className="py-16 bg-sky-500/15">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>

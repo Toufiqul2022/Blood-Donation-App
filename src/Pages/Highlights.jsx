@@ -95,7 +95,7 @@ const HighlightsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-teal-50 via-emerald-50 to-teal-100">
+    <section className="py-20 bg-sky-500/15">
       <div className="max-w-7xl mx-auto px-6">
         <div className="md:flex items-end justify-between gap-10 mb-12">
           {/* Header Text */}
